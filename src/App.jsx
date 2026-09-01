@@ -4,6 +4,7 @@ import {
   Check,
   ChevronDown,
   Download,
+  FileText,
   GraduationCap,
   Mail,
   MapPin,
@@ -442,6 +443,42 @@ function App() {
                 </span>
               ))}
             </div>
+          </div>
+        </section>
+
+        <section className="cv-section section-shell reveal" aria-labelledby="cv-title">
+          <div className="cv-icon" aria-hidden="true">
+            <FileText size={28} />
+          </div>
+
+          <div className="cv-copy">
+            <span className="eyebrow">CURRICULUM VITAE</span>
+            <h2 id="cv-title">A closer look at my developer journey.</h2>
+            <p>
+              Download a concise overview of my education, technical skills,
+              Work Integrated Learning experience, and project exposure.
+            </p>
+          </div>
+
+          <div className="cv-actions">
+            {profile.cvPath ? (
+              <Button as="a" variant="primary" href={profile.cvPath} download>
+                <Download size={17} aria-hidden="true" />
+                Download CV
+              </Button>
+            ) : (
+              <Button type="button" variant="primary" disabled>
+                <Download size={17} aria-hidden="true" />
+                Download CV
+              </Button>
+            )}
+
+            {!profile.cvPath && (
+              <small>
+                Add the CV PDF and its path in portfolioData.js to activate the
+                download.
+              </small>
+            )}
           </div>
         </section>
 
