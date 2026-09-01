@@ -140,7 +140,7 @@ export const projects = [
     tech: ['React', 'JavaScript', 'PHP', 'MySQL'],
     accent: 'cyan',
     repoUrl: '',
-    liveUrl: '',
+    liveUrl: 'https://furniture-world-frontend-dev.onrender.com',
   },
   {
     number: '03',
