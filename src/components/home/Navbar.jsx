@@ -3,7 +3,7 @@ import { Download, Menu, MessageCircle, X } from 'lucide-react'
 
 import { navItems, profile } from '../../data/portfolioData.js'
 
-function Navbar({ activeSection }) {
+function Navbar({ activeSection, scrollProgress = 0 }) {
   const [isOpen, setIsOpen] = useState(false)
 
   useEffect(() => {
@@ -21,6 +21,10 @@ function Navbar({ activeSection }) {
 
   return (
     <header className="navbar">
+      <div className="nav-progress" aria-hidden="true">
+        <span style={{ width: `${scrollProgress}%` }} />
+      </div>
+
       <div className="nav-inner">
         <a className="brand" href="#home" onClick={closeMenu}>
           <span className="brand-mark" aria-hidden="true">

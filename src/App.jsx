@@ -35,6 +35,7 @@ const isConfigured = (value) =>
 function App() {
   const [activeSection, setActiveSection] = useState('home')
   const [showScrollToTop, setShowScrollToTop] = useState(false)
+  const [scrollProgress, setScrollProgress] = useState(0)
   const [formStatus, setFormStatus] = useState('')
 
   const emailReady = isConfigured(profile.email)
@@ -76,14 +77,38 @@ function App() {
       .querySelectorAll('.reveal')
       .forEach((element) => revealObserver.observe(element))
 
-    const handleScroll = () => setShowScrollToTop(window.scrollY > 650)
+    const handleScroll = () => {
+      const scrollableHeight =
+        document.documentElement.scrollHeight - window.innerHeight
+
+      setShowScrollToTop(window.scrollY > 650)
+      setScrollProgress(
+        scrollableHeight > 0
+          ? Math.min((window.scrollY / scrollableHeight) * 100, 100)
+          : 0,
+      )
+    }
+
+    const handlePointerMove = (event) => {
+      document.documentElement.style.setProperty(
+        '--pointer-x',
+        `${event.clientX}px`,
+      )
+      document.documentElement.style.setProperty(
+        '--pointer-y',
+        `${event.clientY}px`,
+      )
+    }
+
     window.addEventListener('scroll', handleScroll, { passive: true })
+    window.addEventListener('pointermove', handlePointerMove, { passive: true })
     handleScroll()
 
     return () => {
       sectionObserver.disconnect()
       revealObserver.disconnect()
       window.removeEventListener('scroll', handleScroll)
+      window.removeEventListener('pointermove', handlePointerMove)
     }
   }, [])
 
@@ -109,11 +134,16 @@ function App() {
 
   return (
     <>
+      <div className="page-atmosphere" aria-hidden="true" />
+
       <a className="skip-link" href="#main-content">
         Skip to main content
       </a>
 
-      <Navbar activeSection={activeSection} />
+      <Navbar
+        activeSection={activeSection}
+        scrollProgress={scrollProgress}
+      />
 
       <main id="main-content">
         <section id="home" className="hero section-shell">
@@ -198,6 +228,19 @@ function App() {
                 <span className="cursor" aria-hidden="true" />
               </div>
               <div className="terminal-result">✓ ready for the next challenge</div>
+
+              <div className="developer-palette">
+                <div>
+                  <span>DESIGN DIRECTION</span>
+                  <strong>Aspiring Software Development</strong>
+                </div>
+                <div className="palette-swatches" aria-hidden="true">
+                  <i />
+                  <i />
+                  <i />
+                  <i />
+                </div>
+              </div>
             </div>
           </div>
 

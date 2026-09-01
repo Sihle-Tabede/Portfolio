@@ -1,7 +1,16 @@
-import { ArrowUpRight, GitBranch, MessageSquareText } from 'lucide-react'
+import {
+  ArrowUpRight,
+  GitBranch,
+  LockKeyhole,
+  MessageSquareText,
+} from 'lucide-react'
 
 function ProjectCard({ project }) {
   const hasProjectLink = Boolean(project.liveUrl || project.repoUrl)
+  const projectSlug = project.title
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/(^-|-$)/g, '')
 
   return (
     <article className={`project-card project-${project.accent} reveal`}>
@@ -11,7 +20,10 @@ function ProjectCard({ project }) {
             <span />
             <span />
             <span />
-            <small>{project.number}.jsx</small>
+            <small>
+              <LockKeyhole size={7} />
+              dev.local/{projectSlug}
+            </small>
           </div>
           <div className="project-window-body">
             <span className="window-sidebar" />
