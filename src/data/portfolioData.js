@@ -15,15 +15,12 @@ export const profile = {
   location: 'Gauteng, South Africa',
   availability: 'Open to graduate and junior developer opportunities',
 
-  // Replace these four values before publishing. The interface safely hides
-  // links that still contain placeholder details.
   email: 'sibonisotabede@gmail.com',
   phone: '+27-81-020-7110',
   github: 'https://github.com/Sihle-Tabede',
   linkedin: 'https://www.linkedin.com/in/your-username',
 
-  // Add public/Siboniso-Tabede-CV.pdf, then set this value to that path.
-  cvPath: '',
+  cvPath: '/Siboniso-Tabede-CV.pdf',
 }
 
 export const navItems = [
@@ -142,20 +139,21 @@ export const projects = [
     repoUrl: '',
     liveUrl: 'https://furniture-world-frontend-dev.onrender.com',
   },
-  {
-    number: '03',
-    type: 'Personal concept',
-    title: 'CampusConnect',
-    subtitle: 'Student Services Platform',
-    description:
-      'A student-focused concept that brings campus information and commonly used digital services into one simple, discoverable space.',
-    contribution:
-      'Product concept, interface structure, reusable React components, and API planning.',
-    tech: ['React', 'Node.js', 'Express', 'JSON'],
-    accent: 'violet',
-    repoUrl: '',
-    liveUrl: '',
-  },
+  
+ {
+  number: '03',
+  type: 'Personal project',
+  title: 'Gallery Noir',
+  subtitle: 'Artist Portfolio & Digital Gallery',
+  description:
+    'A curated online space to showcase original artworks, creative process, and artist narrative. Combines a visual gallery with a personal portfolio for exhibitions, commissions, and connections.',
+  contribution:
+    'Concept development, responsive UI design, interactive gallery components, and integration with a content API for artwork management.',
+  tech: ['React', 'Node.js', 'Express', 'JSON'],
+  accent: 'terracotta',
+  repoUrl: '',
+  liveUrl: 'https://gallerynoir.netlify.app/',
+},
 ]
 
 export const courses = [
