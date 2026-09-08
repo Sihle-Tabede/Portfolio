@@ -2,8 +2,7 @@ import { GitBranch, Link2, Mail } from 'lucide-react'
 
 import { profile } from '../../data/portfolioData.js'
 
-const isConfigured = (value) =>
-  Boolean(value) && !/your[.-]|00 000|example\.com/i.test(value)
+import { isConfigured } from '../../utils/links.js'
 
 function SocialLinks({ showFallback = false }) {
   const links = [

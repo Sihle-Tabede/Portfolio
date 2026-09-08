@@ -18,9 +18,10 @@ export const profile = {
   email: 'sibonisotabede@gmail.com',
   phone: '+27-81-020-7110',
   github: 'https://github.com/Sihle-Tabede',
-  linkedin: 'https://www.linkedin.com/in/your-username',
+  linkedin: '',
 
-  cvPath: '/Siboniso-Tabede-CV.pdf',
+  cvPath: `${import.meta.env.BASE_URL}Siboniso-Tabede-CV.pdf`,
+  cvFilename: 'Siboniso-Tabede-CV.pdf',
 }
 
 export const navItems = [

@@ -3,7 +3,6 @@ import {
   ArrowUpRight,
   Check,
   ChevronDown,
-  Download,
   FileText,
   GraduationCap,
   Mail,
@@ -30,8 +29,8 @@ import {
   skillGroups,
 } from './data/portfolioData.js'
 
-const isConfigured = (value) =>
-  Boolean(value) && !/your[.-]|00 000|example\.com/i.test(value)
+import { isConfigured } from './utils/links.js'
+import CvDownload from './components/ui/CvDownload.jsx'
 
 function App() {
   const [activeSection, setActiveSection] = useState('home')
@@ -180,16 +179,7 @@ function App() {
                 <ArrowUpRight size={17} aria-hidden="true" />
               </Button>
 
-              {profile.cvPath ? (
-                <Button as="a" variant="secondary" href={profile.cvPath} download>
-                  <Download size={17} aria-hidden="true" />
-                  Download CV
-                </Button>
-              ) : (
-                <Button as="a" variant="secondary" href="#experience">
-                  View experience
-                </Button>
-              )}
+              <CvDownload className="button button-secondary" />
             </div>
 
             <div className="connect-row">
@@ -461,24 +451,7 @@ function App() {
           </div>
 
           <div className="cv-actions">
-            {profile.cvPath ? (
-              <Button as="a" variant="primary" href={profile.cvPath} download>
-                <Download size={17} aria-hidden="true" />
-                Download CV
-              </Button>
-            ) : (
-              <Button type="button" variant="primary" disabled>
-                <Download size={17} aria-hidden="true" />
-                Download CV
-              </Button>
-            )}
-
-            {!profile.cvPath && (
-              <small>
-                Add the CV PDF and its path in portfolioData.js to activate the
-                download.
-              </small>
-            )}
+            <CvDownload className="button button-primary" />
           </div>
         </section>
 

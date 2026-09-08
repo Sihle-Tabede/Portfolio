@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react'
-import { Download, Menu, MessageCircle, X } from 'lucide-react'
+import { Menu, X } from 'lucide-react'
+
+import CvDownload from '../ui/CvDownload.jsx'
 
 import { navItems, profile } from '../../data/portfolioData.js'
 
@@ -50,17 +52,7 @@ function Navbar({ activeSection, scrollProgress = 0 }) {
             </a>
           ))}
 
-          {profile.cvPath ? (
-            <a className="nav-cv" href={profile.cvPath} download>
-              <Download size={15} aria-hidden="true" />
-              Download CV
-            </a>
-          ) : (
-            <a className="nav-cv" href="#contact" onClick={closeMenu}>
-              <MessageCircle size={15} aria-hidden="true" />
-              Contact me
-            </a>
-          )}
+          <CvDownload className="nav-cv" onClick={closeMenu} />
         </nav>
 
         <button
