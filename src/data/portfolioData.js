@@ -153,7 +153,7 @@ export const projects = [
   tech: ['React', 'Node.js', 'Express', 'JSON'],
   accent: 'terracotta',
   repoUrl: '',
-  liveUrl: 'https://gallery-noir.onrender.com/',
+  liveUrl: 'https://gallery-noir.onrender.com',
 },
 ]
 
